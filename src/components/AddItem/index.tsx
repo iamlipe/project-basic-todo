@@ -18,7 +18,7 @@ export default function AddItem({ onEnter }: Props) {
 
   return (
     <Content.Container>
-      <img src={moreIcon} alt="more" ></img>
+      <img src={moreIcon} alt="more" />
       <input
         type="text"
         placeholder="add task"
