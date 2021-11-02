@@ -1,26 +1,23 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from 'react';
+import { Item } from './types/item'
+import * as Component from './App.styles'
+import ListItem from './components/ListItem';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Iniciando o projeto
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+export default function App() {
+  const [list, setList] = useState<Item[]>([
+    {id: 1, title: 'comprar camisa do barca', completed: false},
+    {id: 2, title: 'comprar camisa do liverpool', completed: false}
+  ])
+
+  return(
+    <Component.Container>
+      <Component.Content>
+        <Component.Header>Todo List</Component.Header>
+
+          {list.map((item) =>  <ListItem key={item.id} item={item} /> )}
+
+      </Component.Content>
+    </Component.Container>
   );
 }
 
-export default App;
