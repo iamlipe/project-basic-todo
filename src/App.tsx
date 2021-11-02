@@ -2,10 +2,11 @@ import React, { useState } from 'react';
 import { Item } from './types/item'
 import * as Component from './App.styles'
 import ListItem from './components/ListItem';
+import AddItem from './components/AddItem';
 
 export default function App() {
   const [list, setList] = useState<Item[]>([
-    {id: 1, title: 'comprar camisa do barca', completed: false},
+    {id: 1, title: 'comprar camisa do barca', completed: true},
     {id: 2, title: 'comprar camisa do liverpool', completed: false}
   ])
 
@@ -14,7 +15,8 @@ export default function App() {
       <Component.Content>
         <Component.Header>Todo List</Component.Header>
 
-          {list.map((item) =>  <ListItem key={item.id} item={item} /> )}
+        <AddItem add={setList} />  
+        {list.map((item) =>  <ListItem key={item.id} item={item} /> )}
 
       </Component.Content>
     </Component.Container>
