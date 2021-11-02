@@ -10,12 +10,20 @@ export default function App() {
     {id: 2, title: 'comprar camisa do liverpool', completed: false}
   ])
 
+  const handleTask = (task: string) => {
+    const newList = [
+      ...list,
+      { id: 3, title: task, completed: false }
+    ]
+    setList(newList);
+  }
+
   return(
     <Component.Container>
       <Component.Content>
         <Component.Header>Todo List</Component.Header>
 
-        <AddItem/>  
+        <AddItem onEnter={handleTask}/>  
         {list.map((item) =>  <ListItem key={item.id} item={item} /> )}
 
       </Component.Content>

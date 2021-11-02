@@ -2,16 +2,19 @@ import React, { useState, KeyboardEvent } from 'react';
 import * as Content from './styles';
 import moreIcon from '../../images/add.svg'
 
-// type Add = {
-//   add: 
-// }
+type Props = {
+  onEnter: (task: string) => void;
+}
 
-export default function AddItem() {
+export default function AddItem({ onEnter }: Props) {
   const [task, setTask] = useState('');
 
-  // const handleKeyUp = (event: KeyboardEvent) => {
-
-  // };
+  const handleKeyUp = (event: KeyboardEvent) => {
+    if ( event.code === 'Enter' && task.length !== 0 ) {
+      onEnter(task);
+      setTask('');
+    }
+  };
 
   return (
     <Content.Container>
@@ -21,7 +24,7 @@ export default function AddItem() {
         placeholder="add task"
         value={task}
         onChange={({target}) => setTask(target.value)}
-        // onKeyUp={handleKeyUp}
+        onKeyUp={handleKeyUp}
       />
     </Content.Container>
   )
