@@ -4,7 +4,6 @@ import * as Component from './App.styles'
 import ListItem from './components/ListItem';
 import AddItem from './components/AddItem';
 import trashIcon from './images/trash.svg';
-import { idText } from 'typescript';
 
 export default function App() {
   const [list, setList] = useState<Item[]>([])
