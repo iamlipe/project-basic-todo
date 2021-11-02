@@ -9,9 +9,9 @@ import moreIcon from '../../images/add.svg'
 export default function AddItem() {
   const [task, setTask] = useState('');
 
-  const handleKeyUp = (event: KeyboardEvent) => {
+  // const handleKeyUp = (event: KeyboardEvent) => {
 
-  };
+  // };
 
   return (
     <Content.Container>
@@ -21,7 +21,7 @@ export default function AddItem() {
         placeholder="add task"
         value={task}
         onChange={({target}) => setTask(target.value)}
-        onKeyUp={handleKeyUp}
+        // onKeyUp={handleKeyUp}
       />
     </Content.Container>
   )

@@ -15,7 +15,7 @@ export default function App() {
       <Component.Content>
         <Component.Header>Todo List</Component.Header>
 
-        <AddItem add={setList} />  
+        <AddItem/>  
         {list.map((item) =>  <ListItem key={item.id} item={item} /> )}
 
       </Component.Content>
